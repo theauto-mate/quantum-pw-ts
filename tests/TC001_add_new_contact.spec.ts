@@ -4,17 +4,19 @@ import { FakerData } from '../utils/fakerUtils';
 import { appConstants } from '../constants/appConstants';
 
 
-test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
+test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage, page }) => {
     test.info().annotations.push(
-        { type: 'Author', description: 'Arpitha' },
-        { type: 'TestCase', description: 'Add new contact and verify its displayed' },
+        { type: 'Author', description: 'Vinoth' },
+        { type: 'TestCase ID ', description: 'TC-001 -  Add New Contact and Verify' },
         { type: 'Test Description', description: "Verifying newly created contact is displayed in contact leads page" }
     );
 
-    const excelReader = new ExcelReader('/Users/vinothvasu/Auto-Mate/quantum_updated/quantum/resources/testdata.xlsx');
+    // const excelReader = new ExcelReader('/Users/vinothvasu/Auto-Mate/quantum_updated/quantum/resources/testdata.xlsx');
+    const excelReader = new ExcelReader('../resources/testdata.xlsx');
     const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_001');
 
     const contactName = FakerData.getFirstName();
+
     await addContactDetailsPage.enterName(contactName);
     await addContactDetailsPage.enterEmail(FakerData.getEmail());
     await addContactDetailsPage.enterPhoneNumber(excelData.PHONE_NUMBER);
@@ -31,7 +33,10 @@ test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeads
     await addContactDetailsPage.enterNotes(excelData.DESCRIPTION);
     await addContactDetailsPage.clickAddButton();
 
+
     const contactsPage = await contactsLeadsPage.switchBackToContactsPage();
+
+    // await page.waitForTimeout(3000); // static wait
 
     // const actualContactName = await contactsPage.getFirstContactName();
     // expect(actualContactName).toContain(contactName);

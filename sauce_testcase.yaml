@@ -1,0 +1,17 @@
+Generate test case in POM for below test step
+
+1. Login to sauceLabs application using URL: https://www.saucedemo.com/ 
+username: standard_user  
+password: secret_sauce
+
+2. Select 'Sauce Labs Fleece Jacket' item and click on add to cart button
+
+3. Click on cart icon
+
+4. Click on checkout
+
+5. Enter first name, last name, zip code and click on Continue
+
+6. Click on Finish
+
+7. Verify 'Thank you for your order!' is displayed
