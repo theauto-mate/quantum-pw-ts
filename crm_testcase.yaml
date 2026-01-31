@@ -1,0 +1,14 @@
+Generate test case in POM for below test step
+
+1. Login to CRM application using URL: https://apps.theauto-mate.com/crm/login.php
+    username: *****
+    password: *****
+
+2. Click on Contact/leads and click on Add new contact
+
+3. Click on Add new contact will open a new window and fill name, email, phone number and 
+all other details in that window and Click on Add button
+ 
+4.  verify 'Lead added successfully' message is displayed
+
+5. In the main page verify whether the created lead is displayed in the leads list
