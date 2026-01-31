@@ -16,6 +16,7 @@ playwright-report/
 blob-report/
 allure-report/
 allure-results/
+test-report/
 
 # Playwright cache & downloads
 .playwright/
