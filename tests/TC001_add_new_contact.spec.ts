@@ -4,7 +4,7 @@ import { FakerData } from '../utils/fakerUtils';
 import { appConstants } from '../constants/appConstants';
 
 
-test.only('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage, page }) => {
+test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage, page }) => {
     test.info().annotations.push(
         { type: 'Author', description: 'Vinoth' },
         { type: 'TestCase ID ', description: 'TC-001 -  Add New Contact and Verify' },
