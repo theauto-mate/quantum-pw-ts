@@ -6,7 +6,8 @@ import { AddContactDetailsPage } from '../pages/AddContactDetailsPage';
 import {APIUtils} from '../utils/APIUtils'
 import {URLConstants} from '../constants/urlConstants';
 import dotenv from 'dotenv';
-dotenv.config();
+import { LeadPage } from '../pages/EditLeadeInfo';
+dotenv.config({ path: 'quantum-pw-ts/.env' });
 
 
 type CRMFixtures = {
@@ -14,6 +15,7 @@ type CRMFixtures = {
   context: BrowserContext;
   homePage: HomePage;
   contactsLeadsPage: ContactLeadsPage;
+  leadPage: LeadPage;
   addContactDetailsPage: AddContactDetailsPage;
   apiCreateContact: {response: APIResponse, payload: any};
 };
@@ -21,14 +23,16 @@ type CRMFixtures = {
 const crmTest = baseTest.extend<CRMFixtures>({
   homePage: async ({ page, context }, use) => {
     await page.goto(URLConstants.adminURL);
+    await page.waitForLoadState('networkidle');
 
     const username = process.env.USERNAME ? process.env.USERNAME : "automate.crm";
-    const password = process.env.PASSWORD ? process.env.PASSWORD : "****";
+    const password = process.env.PASSWORD ? process.env.PASSWORD : "test@123";
 
     const loginPage = new LoginPage(page, context);
     await loginPage.enterUsername(username);
     await loginPage.enterPassword(password);
     const homePage = await loginPage.clickLogin();
+    await page.waitForLoadState('networkidle');
 
     await use(homePage);
   },
@@ -44,6 +48,12 @@ const crmTest = baseTest.extend<CRMFixtures>({
     const addContactDetailsPage = await contactsLeadsPage.clickAddNewContact();
     await use(addContactDetailsPage);
   },
+  
+  leadPage: async ({ page, context }, use) => {
+    const leadPage = new LeadPage(page, context);
+    await use(leadPage);
+  },
+
 
   apiCreateContact: async ({request}, use)=> {
     const apiUtils = new APIUtils(request);
