@@ -6,13 +6,13 @@ import { appConstants } from '../constants/appConstants';
 
 test('Edit Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
     test.info().annotations.push(
-        { type: 'Author', description: 'Hareesh' },
+        { type: 'Author', description: 'Pravin' },
         { type: 'TestCase', description: 'Merge contact and verify its updated' },
         { type: 'Test Description', description: "Verifying merge contact details are updated in contact leads page" }
     );
 
     const excelReader = new ExcelReader('.../resources/testdata.xlsx');
-    const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_002');
+    const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_004');
 
     const contactName = FakerData.getFirstName();
     await addContactDetailsPage.enterName(contactName);
