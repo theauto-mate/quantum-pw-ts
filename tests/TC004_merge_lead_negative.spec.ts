@@ -2,19 +2,17 @@ import { expect, test } from '../customFixtures/crmFixtures';
 import { ExcelReader } from '../utils/excelUtils';
 import { FakerData } from '../utils/fakerUtils';
 import { appConstants } from '../constants/appConstants';
-import path from 'path';
 
 
-test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
+test('Edit Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
     test.info().annotations.push(
-        { type: 'Author', description: 'Arpitha' },
-        { type: 'TestCase', description: 'Add new contact and verify its displayed' },
-        { type: 'Test Description', description: "Verifying newly created contact is displayed in contact leads page" }
+        { type: 'Author', description: 'Hareesh' },
+        { type: 'TestCase', description: 'Merge contact and verify its updated' },
+        { type: 'Test Description', description: "Verifying merge contact details are updated in contact leads page" }
     );
 
-     const filePath = path.resolve(__dirname, '../resources/testdata.xlsx');
-    const excelReader = new ExcelReader(filePath);
-    const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_001');
+    const excelReader = new ExcelReader('.../resources/testdata.xlsx');
+    const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_002');
 
     const contactName = FakerData.getFirstName();
     await addContactDetailsPage.enterName(contactName);
