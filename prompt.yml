@@ -1,0 +1,26 @@
+
+URL: https://apps.theauto-mate.com/crm/login.php
+
+Create positive and negative scenarios for login page.
+- Username name will accept a minimum of 6 character and maximum of 15 characters
+- Password field will accept a minimum of 8 character and maximum of 15 characters
+
+
+Navigate to https://www.saucedemo.com/  and generate
+test script for below test steps
+
+1. Login to sauceLabs application using URL: https://www.saucedemo.com/ 
+username: standard_user  
+password: secret_sauce
+
+2. Select 'Sauce Labs Fleece Jacket' item and click on add to cart button
+
+3. Click on cart icon
+
+4. Click on checkout
+
+5. Enter first name, last name, zip code and click on Continue
+
+6. Click on Finish
+
+7. Verify 'Thank you for your order!' is displayed
