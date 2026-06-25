@@ -23,7 +23,7 @@ const crmTest = baseTest.extend<CRMFixtures>({
     await page.goto(URLConstants.adminURL);
 
     const username = process.env.USERNAME ? process.env.USERNAME : "automate.crm";
-    const password = process.env.PASSWORD ? process.env.PASSWORD : "****";
+    const password = process.env.PASSWORD ? process.env.PASSWORD : "test@123"
 
     const loginPage = new LoginPage(page, context);
     await loginPage.enterUsername(username);
