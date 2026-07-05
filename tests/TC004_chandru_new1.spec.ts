@@ -33,9 +33,6 @@ test('Edit Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPag
 
     const contactsPage = await contactsLeadsPage.switchBackToContactsPage();
 
-    // const actualContactName = await contactsPage.getFirstContactName();
-    // expect(actualContactName).toContain(contactName);
-
     await expect(await contactsPage.getFirstContactName()).toHaveText(contactName);
     //await page.pause();
 });

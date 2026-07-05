@@ -6,7 +6,7 @@ import { appConstants } from '../constants/appConstants';
 
 test('Edit Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
     test.info().annotations.push(
-        { type: 'Author', description: 'Pravin' },
+        { type: 'Author', description: 'Chandru' },
         { type: 'TestCase', description: 'Merge contact and verify its updated' },
         { type: 'Test Description', description: "Verifying merge contact details are updated in contact leads page" }
     );
