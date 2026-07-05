@@ -2,7 +2,6 @@ import { expect, test } from '../customFixtures/crmFixtures';
 import { ExcelReader } from '../utils/excelUtils';
 import { FakerData } from '../utils/fakerUtils';
 import { appConstants } from '../constants/appConstants';
-import path from 'path';
 
 
 test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeadsPage }) => {
@@ -12,8 +11,7 @@ test('Add New Contact and Verify', async ({ addContactDetailsPage, contactsLeads
         { type: 'Test Description', description: "Verifying newly created contact is displayed in contact leads page" }
     );
 
-     const filePath = path.resolve(__dirname, '../resources/testdata.xlsx');
-    const excelReader = new ExcelReader(filePath);
+    const excelReader = new ExcelReader('/Users/vinothvasu/Auto-Mate/quantum_updated/quantum/resources/testdata.xlsx');
     const excelData = excelReader.getRowByTestcase('contact', 'TC_ID', 'TC_001');
 
     const contactName = FakerData.getFirstName();
